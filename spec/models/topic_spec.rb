@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Topic, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:topic) { Topic.create!(title: "topic") }
+
+  describe "attributes" do
+    it "has a title" do
+      expect(topic).to have_attributes(title: "topic")
+    end
+  end
 end
