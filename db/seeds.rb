@@ -8,3 +8,6 @@
 
 dogs = Topic.find_or_create_by!(title: 'Dogs')
 cats = Topic.find_or_create_by!(title: 'Cats')
+
+play_fight = Bookmark.create!(topic: dogs, url: 'http://imgur.com/gallery/Zq1vE27')
+sick_cat   = Bookmark.create!(topic: cats, url: 'http://imgur.com/gallery/P3K8Z')
