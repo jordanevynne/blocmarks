@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-dogs = Topic.create!(title: 'Dogs')
-cats = Topic.create!(title: 'Cats')
+dogs = Topic.find_or_create_by!(title: 'Dogs')
+cats = Topic.find_or_create_by!(title: 'Cats')
