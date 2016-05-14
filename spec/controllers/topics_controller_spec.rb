@@ -50,7 +50,6 @@ RSpec.describe TopicsController, type: :controller do
     get :new
     expect(assigns(:topic)).not_to be_nil
   end
-end
 
   describe "POST create" do
     it "increases the number of topics by 1" do
@@ -76,15 +75,16 @@ end
 #  end
 #end
 
-describe "DELETE destroy" do
-  it "deletes the topic" do
-    delete :destroy, {id: my_topic.id}
-    count = Topic.where({id: my_topic.id}).size
-    expect(count).to eq 0
-  end
+  describe "DELETE destroy" do
+    it "deletes the topic" do
+      delete :destroy, {id: my_topic.id}
+      count = Topic.where({id: my_topic.id}).size
+      expect(count).to eq 0
+    end
 
-  it "redirects to topics index" do
-    delete :destroy, {id: my_topic.id}
-    expect(response).to redirect_to topics_path
+    it "redirects to topics index" do
+      delete :destroy, {id: my_topic.id}
+      expect(response).to redirect_to topics_path
+    end
   end
 end
