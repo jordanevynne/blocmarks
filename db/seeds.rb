@@ -6,4 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Grrrr! Add a couple! ;-)
+dogs = Topic.create!(title: 'Dogs')
+cats = Topic.create!(title: 'Cats')
