@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TopicsController, type: :controller do
-  let(:my_topic) { Topic.create(title: "topic") }
+  let(:my_topic) { Topic.create!(title: "topic") }
 
   describe "GET index" do
     it "returns http success" do
@@ -15,13 +15,23 @@ RSpec.describe TopicsController, type: :controller do
     end
   end
 
-#  describe "GET #show" do
-#    it "returns http success" do
-#      get :show
-#      expect(response).to have_http_status(:success)
-#    end
-#  end
-#
+  describe "GET show" do
+    it "returns http success" do
+      get :show, {id: my_topic.id}
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the #show view" do
+      get :show, {id: my_topic.id}
+      expect(response).to render_template :show
+    end
+
+    it "assigns my_topic to @topic" do
+      get :show, {id: my_topic.id}
+      expect(assigns(:topic)).to eq(my_topic)
+    end
+  end
+
   describe "GET #new" do
     it "returns http success" do
       get :new
@@ -42,21 +52,23 @@ RSpec.describe TopicsController, type: :controller do
   end
 end
 
-# describe "TOPIC create" do
-#    it "increases the number of Topics by 1" do
-#      expect{topic :create, topic: {title: "topic"}}.to change(Topic,:count).by(1)
+#  describe "POST create" do
+#    it "increases the number of topics by 1" do
+#      expect{post :create, topic: {title: "topic"}}.to change(Topic,:count).by(1)
 #    end
+#  end
 #
-#    it "assigns the new topic to @topic" do
-#      topic :create, topic: {title: "topic"}
+#    it "assigns Topic.last to @topic" do
+#      post :create, {topic: {title: "topic"}}
 #      expect(assigns(:topic)).to eq Topic.last
 #    end
 #
 #    it "redirects to the new topic" do
-#      topic :create, topic: {title: "topic"}
+#      post :create, {topic: {title: "topic"}}
 #      expect(response).to redirect_to Topic.last
 #    end
 #  end
+#
 #
 #  describe "GET #edit" do
 #    it "returns http success" do
