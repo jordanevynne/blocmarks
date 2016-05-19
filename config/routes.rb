@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
-
-  get 'bookmarks/show'
-
-  get 'bookmarks/new'
-
-  get 'bookmarks/edit'
-
   devise_for :users
-  resources :topics
-  resources :bookmarks
+  resources :topics do
+    resources :bookmarks, except: [:index]
+  end
 
   root 'topics#index'
 

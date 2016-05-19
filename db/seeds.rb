@@ -6,8 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-dogs = Topic.find_or_create_by!(title: 'Dogs')
-cats = Topic.find_or_create_by!(title: 'Cats')
+food = Topic.find_or_create_by!(title: 'food')
 
-play_fight = Bookmark.create!(topic: dogs, url: 'http://imgur.com/gallery/Zq1vE27')
-sick_cat   = Bookmark.create!(topic: cats, url: 'http://imgur.com/gallery/P3K8Z')
+
+burgers = Bookmark.create!(topic: food, url: 'https://s-media-cache-ak0.pinimg.com/736x/66/27/01/6627010d3fd8a0456df94237f49769e9.jpg')
