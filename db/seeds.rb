@@ -6,7 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-food = Topic.find_or_create_by!(title: 'food')
-
-
-burgers = Bookmark.create!(topic: food, url: 'https://s-media-cache-ak0.pinimg.com/736x/66/27/01/6627010d3fd8a0456df94237f49769e9.jpg')
+Topic.find_or_create_by!(title: 'food')
+Topic.find_or_create_by!(title: 'music')

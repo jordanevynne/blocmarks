@@ -1,8 +1,5 @@
 <h1>new bookmark</h1>
   <%= form_for [@topic, @bookmark] do |f| %>
-
-    <%= f.label :url %>
-    <%= f.text_field :url %>
-
+    <%= f.text_field :url, class: 'form-control', placeholder: "Enter bookmark url" %>
     <%= f.submit "Save" %>
   <% end %>
