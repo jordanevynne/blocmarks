@@ -23,6 +23,7 @@ end
   gem 'bootstrap'
   gem 'figaro'
   gem 'pry'
+  gem 'pundit'
 
 group :development, :test do
   gem 'byebug'
