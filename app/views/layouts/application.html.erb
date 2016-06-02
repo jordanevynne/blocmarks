@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>blocmarks</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>blocmarks</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+  </head>
 
-  <ul class="nav navbar-nav navbar-right">
-    <li><%= link_to "blocmarks", root_path %></li>
-    <% if user_signed_in? %>
-      <li><%= link_to current_user.email, edit_user_registration_path %></li>
-      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-    <% else %>
-      <div class="pull-right">
-      <li><%= link_to "Sign Up", new_user_registration_path %></li>
-      <li><%= link_to "Sign In", new_user_session_path %></li>
+<body>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <%= link_to "blocmarks", root_path %> |
+      <% if user_signed_in? %>
+        <%= link_to current_user.email, edit_user_registration_path %> |
+        <%= link_to "sign out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "sign up", new_user_registration_path %> |
+        <%= link_to "sign in", new_user_session_path %>
     </div>
+  </nav>
     <% end %>
 
   </ul>
