@@ -1,4 +1,4 @@
-<h1>edit bookmark</h1>
+<div class="container"
 
   <div class="col-md-8">
     <%= form_for [@bookmark.topic, @bookmark] do |f| %>
@@ -6,7 +6,7 @@
         <%= f.text_field :url, class: 'form-control', placeholder: "Enter bookmark url" %>
 
       <div class="form-group">
-        <%= f.submit "Save", class: 'btn btn-success' %>
+        <%= f.submit "Save" %>
       </div>
     <% end %>
   </div>

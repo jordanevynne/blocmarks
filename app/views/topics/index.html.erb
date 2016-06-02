@@ -1,13 +1,13 @@
 <h1>blockmarks</h1>
 
 <div class="container"
-<div class="row">
+  <div class="row">
   <div class="col-md-8">
     <% @topics.each do |topic| %>
-    <div class="col-xs-4">
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
+      <div class="col-xs-4">
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading">
             <div class="col-xs-4">
             <img src="http://placehold.it/150"><%= link_to topic.title, topic %>
           </h4>
