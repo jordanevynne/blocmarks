@@ -15,6 +15,7 @@ class BookmarksController < ApplicationController
     @bookmark.url = params[:bookmark][:url]
     @topic = Topic.find(params[:topic_id])
     @bookmark.topic = @topic
+    @bookmark.user_id = current_user.id
 
     if @bookmark.save
       flash[:notice] = "Bookmark was saved successfully."

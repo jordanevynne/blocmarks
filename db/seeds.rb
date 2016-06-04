@@ -5,6 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Topic.find_or_create_by!(title: 'food')
-Topic.find_or_create_by!(title: 'music')
