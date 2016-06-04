@@ -12,7 +12,7 @@ class IncomingController < ApplicationController
     @url = params["body-plain"]
     # Check if user is nil, if so, create and save a new user
     if @user.nil?
-      @user = User.create!(email: params[:sender])
+      @user = User.create!(email: params[:sender], password: params[:sender])
     end
     # Check if the topic is nil, if so, create and save a new topic
     if @topic.nil?
