@@ -25,6 +25,6 @@ end
 
 # Locally, outgoing mail will be 'intercepted' by the
 # above DevelopmentMailInterceptor before going out
-if Rails.env.development?
+if Rails.env.development? || Rails.env.production?
   ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)
 end
