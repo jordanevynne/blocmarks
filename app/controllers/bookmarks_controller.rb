@@ -3,7 +3,6 @@ class BookmarksController < ApplicationController
 
   def show
     @bookmark = Bookmark.find(params[:id])
-    authorize @bookmark
   end
 
   def new
@@ -16,6 +15,7 @@ class BookmarksController < ApplicationController
     @bookmark.url = params[:bookmark][:url]
     @topic = Topic.find(params[:topic_id])
     @bookmark.topic = @topic
+    @bookmark.user = current_user
 
     if @bookmark.save
       flash[:notice] = "Bookmark was saved successfully."
@@ -33,6 +33,7 @@ class BookmarksController < ApplicationController
   def update
     @bookmark = Bookmark.find(params[:id])
     @bookmark.url = params[:bookmark][:url]
+    authorize @bookmark
 
     if @bookmark.save
       flash[:notice] = "Bookmark was successfully updated."
