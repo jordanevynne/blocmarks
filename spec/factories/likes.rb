@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :like do
     user nil
     bookmark nil
-    index "MyString"
+    index 'MyString'
   end
 end

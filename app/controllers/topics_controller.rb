@@ -1,5 +1,4 @@
 class TopicsController < ApplicationController
-
   def index
     @topics = Topic.all
   end
@@ -17,10 +16,10 @@ class TopicsController < ApplicationController
     @topic.title = params[:topic][:title]
 
     if @topic.save
-      flash[:notice] = "Topic was saved successfully."
+      flash[:notice] = 'Topic was saved successfully.'
       redirect_to @topic
     else
-      flash.now[:alert] = "There was an error saving the topic. Please try again."
+      flash.now[:alert] = 'There was an error saving the topic. Please try again.'
       render :new
     end
   end
@@ -34,10 +33,10 @@ class TopicsController < ApplicationController
     @topic.title = params[:topic][:title]
 
     if @topic.save
-      flash[:notice] = "Topic was updated successfully."
+      flash[:notice] = 'Topic was updated successfully.'
       redirect_to @topic
     else
-      flash.now[:alert] = "Error saving topic. Please try again."
+      flash.now[:alert] = 'Error saving topic. Please try again.'
       render :edit
     end
   end
@@ -49,7 +48,7 @@ class TopicsController < ApplicationController
       flash[:notice] = "\"#{@topic.title}\" was deleted successfully."
       redirect_to action: :index
     else
-      flash.now[:alert] = "There was an error deleting the topic."
+      flash.now[:alert] = 'There was an error deleting the topic.'
       render :show
     end
   end
