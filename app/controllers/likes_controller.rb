@@ -19,7 +19,7 @@ class LikesController < ApplicationController
 
    def destroy
     @bookmark = Bookmark.find(params[:bookmark_id])
-    like = Like.find(params[:id])
+    like = current_user.likes.find(params[:id])
 
     if like.destroy
       flash[:notice] = "Unliked!"
