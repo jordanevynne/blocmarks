@@ -10,4 +10,4 @@ class User < ActiveRecord::Base
   def liked(bookmark)
     likes.where(bookmark_id: bookmark.id).first if bookmark.present?
   end
-       end
+end
