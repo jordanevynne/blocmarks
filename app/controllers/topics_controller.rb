@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @topics = Topic.all
   end
@@ -19,7 +21,7 @@ class TopicsController < ApplicationController
       flash[:notice] = 'Topic was saved successfully.'
       redirect_to @topic
     else
-      flash.now[:alert] = 'There was an error saving the topic. Please try again.'
+      flash.now[:alert] = 'Error saving the topic.'
       render :new
     end
   end
@@ -36,7 +38,7 @@ class TopicsController < ApplicationController
       flash[:notice] = 'Topic was updated successfully.'
       redirect_to @topic
     else
-      flash.now[:alert] = 'Error saving topic. Please try again.'
+      flash.now[:alert] = 'Error saving topic.'
       render :edit
     end
   end
@@ -48,7 +50,7 @@ class TopicsController < ApplicationController
       flash[:notice] = "\"#{@topic.title}\" was deleted successfully."
       redirect_to action: :index
     else
-      flash.now[:alert] = 'There was an error deleting the topic.'
+      flash.now[:alert] = 'Error deleting the topic.'
       render :show
     end
   end

@@ -4,8 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :topics
   has_many :bookmarks, through: :topics, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_bookmarks
+
+  validates :name, presence: true
 
   def liked(bookmark)
     likes.where(bookmark_id: bookmark.id).first

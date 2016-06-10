@@ -5,25 +5,25 @@ class LikesController < ApplicationController
     # authorize @like
 
     if like.save
-      flash[:notice] = "Liked!"
+      flash[:notice] = 'Liked!'
       redirect_to @bookmark.topic
     else
-      flash.now[:alert] = "Error! Please try again."
+      flash.now[:alert] = 'Error! Please try again.'
       redirect_to @bookmark
     end
   end
 
-   def destroy
+  def destroy
     @bookmark = Bookmark.find(params[:bookmark_id])
     like = current_user.likes.find(params[:id])
     # authorize @like
 
     if like.destroy
-      flash[:notice] = "Unliked!"
+      flash[:notice] = 'Unliked!'
       redirect_to @bookmark.topic
     else
-      flash.now[:alert] = "Error! Please try again."
+      flash.now[:alert] = 'Error! Please try again.'
       redirect_to [@bookmark.topic, @bookmark]
     end
-  end
+ end
 end

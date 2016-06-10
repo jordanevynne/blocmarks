@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
-    #@liked_bookmarks = current_user.liked_bookmarks
-    # populate @user_bookmarks with the user's bookmarks
-    # populate @liked_bookmarks with liked bookmarks
+    @user = User.find(params[:id])
+    @liked_bookmarks = current_user.bookmarks.all
+    @user_bookmarks = current_user.bookmarks.all
     end
 end
