@@ -10,14 +10,19 @@ class TopicsController < ApplicationController
   end
 
   def new
+    # Can we get rid of this?
     @topic = Topic.new
+    byebug
   end
 
   def create
     @topic = Topic.new
     @topic.title = params[:topic][:title]
+    @topic.user_id = current_user.id
+    byebug
 
     if @topic.save
+      byebug
       flash[:notice] = 'Topic was saved successfully.'
       redirect_to @topic
     else
