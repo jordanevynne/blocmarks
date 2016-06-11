@@ -1,9 +1,11 @@
 <h1>my blocmarks</h1>
 
+<h3>Bookmarks</h3>
 <% @user_bookmarks.each do |bookmark| %>
   <div> <%= bookmark.url %> </div>
 <% end %>
 
-<% @liked_bookmarks.each do |likes| %>
-  <div> <%= likes %> </div>
+<h3>Liked</h3>
+<% @liked_bookmarks.each do |like| %>
+  <div> <%= like.bookmark.url %> </div>
 <% end %>
